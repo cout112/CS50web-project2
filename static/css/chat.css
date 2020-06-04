@@ -1,0 +1,91 @@
+
+
+body{
+	background-color:  #0052cc;
+	font-family: 'Zilla Slab', serif;
+	font-size:15px;	
+}
+.toprow {
+	font-weight:bold;
+	background-color:black;
+	color:#d0d3e1;
+	font-size:30px;
+	margin-bottom:15px;
+	height:50px;
+	padding:10px;
+}
+#channelscolumn{
+	border-style: solid;
+	border-width: 0px 1px 0px 0px;
+	border-color:#d0d3e1;
+}
+.channels {
+	font-weight:bold;
+}
+#overflow{
+	overflow-y:auto;
+}
+#overflow1{
+	overflow-y:auto;
+
+}
+
+#channelinput{
+	background-color: transparent;
+	border-style: solid;
+	border-color:#737ca5;
+	border-width: 0.5px;
+	color:white;
+	font-size: 15px;
+	width:90%;
+	padding-left:5px;
+}
+#input{
+	background-color: transparent;
+	border-style: solid;
+	border-color:#737ca5;
+	border-width: 0.5px;
+	color:white;
+	font-size: 14px;
+	width:90%;
+	padding-left:5px;
+}
+input::placeholder {
+  color: #d0d3e1;
+}
+.btn.new_message{
+	color:#d0d3e1;
+}
+.btn.new_channel{
+	color:#d0d3e1;
+}
+.btn.remove{
+	position:absolute;
+	right:0px;
+}
+hr{
+	color:#d0d3e1;
+	background-color:#d0d3e1;
+}
+button.btn.importmessages{
+	color:#ffff00;
+}
+.username {
+	color:#ffff00;
+}
+.current_channel{
+	color:#ffff00;
+}
+
+.messagebubble{
+	background-color: #005ce6;
+	border-radius: 5px;
+	margin:5px;
+	padding:5px;
+	max-width: 400px;
+}
+
+
+
+
+

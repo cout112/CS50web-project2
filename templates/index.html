@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+		<title>Enter</title>
+	</head>
+	<body>
+		<div class='container'>
+			<div class='row' style='height:300px'></div>
+			<div class='row justify-content-around'>
+				<div class='col-sm-12'>
+				<form action="{{url_for('chat')}}" method='POST'>
+					<div>
+						<input type='text' id='input' name='username' class='name_fill text-center col-12' placeholder='Your Name'>
+					</div>
+					<hr style='width:50%'>
+					<div>
+						<button id='login' class='btn col-12'>Enter</button>
+					</div>
+				</form>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

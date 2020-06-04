@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+		<script id="channel_post" type="text/x-handlebars-template">
+            {% raw -%}<div class="row justify-content-between" style='padding-right:0px;padding-left:10px;width:100%'>
+            	<button  class='btn importmessages' >{{data}}</button>
+                <button class='btn remove' style='font-size:10px;color:white;text-align:right'>X</button>
+            </div><hr class='text-center col-10' style='margin:0px'>{%- endraw %}
+        </script>
+        <script id="message_post" type="text/x-handlebars-template">
+            <div class="row {% raw -%}{{righttext}}" style='margin-right:10px;padding-left:15px'>
+            	<div class='col-auto messagebubble text-right'>
+	            	<div style='color:white'>{{message}}{%- endraw %}</div>
+	            	<div style='color:white;font-size:18px'>
+		                {% raw -%}<span style='font-size:10px;color:#cccccc'> by <span style='color:#ffff00'>{{username}}</span> on {{date}}</span>{%- endraw %}  
+		            </div>
+		        </div>
+        	</div>
+        </script>
+        <script id='error_alert' type="text/x-handlebars-template">
+        	{% raw -%}
+        	<div class='row' style='padding-left:30px'><span id='errormessage' class=' alert-danger'>{{ data }}</span></row>
+        	{%- endraw %}
+        </script>
+		
+
+		<title>CHAT</title>
+	</head>
+	<body>
+		<div class='container-fluid'>
+			<div class='row justify-content-between toprow'>
+				<div class='col-3'>
+					<span style='font-size:15px;font-weight:normal'>Hi&nbsp;</span><a href="{{url_for('index')}}"class='username'> </a>
+				</div>
+				<div class='col-auto text-right'>
+					<span style='font-size:15px;font-weight:normal'>Channel&nbsp;</span><span class='current_channel'> </span>
+				</div>	
+			</div>
+				
+		</div>
+		<div class='container-fluid' style='padding-right:50px;padding-left:50px;padding-top:15px'>
+
+			
+			<div class='row'>
+				<div class='col-lg-3' id='channelscolumn' >
+					<div class='row'>
+						
+						<span class='alertmessage'></span>
+					</div>
+					<div class='row align-items-center'>
+						<div class='col-8' style='padding-right:0px'>
+							<input type='text' id ='channelinput' class='channel_name rounded-lg' placeholder='New Channel'>
+						</div>
+						<div class='col-4' style='padding-left:0px'>
+							<button class='btn new_channel'>Create</button>
+						</div>
+						
+					</div>
+					<div class='channels' id='overflow'>
+					</div>
+
+				</div>
+
+				<div class='col-lg-9'>
+					<div class='row'>
+						<div class='col-12 messages' id='overflow1'></div>
+					</div>
+					<div class='row justify-content-end align-items-center'>
+						<div class='col-10 absolute'>
+						
+							<input id ='input' autofocus="autofocus" onfocus="this.select()" type='text' class='message rounded-lg' placeholder='Message' style='width:100%'>
+						</div>
+						<div class='col-2'>
+
+							<button class='btn new_message'>Send</button>
+						</div>
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>
